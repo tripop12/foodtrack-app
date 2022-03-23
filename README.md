@@ -31,7 +31,7 @@ Reference [Homebrew](https://medium.com/mycostech/%E0%B8%A1%E0%B8%B2%E0%B8%95%E0
 ```
 ---
 
-# Setting Up React Native :cry:
+# Setting Up React Native 😢
 Reference [React Native Setup Environment](https://reactnative.dev/docs/environment-setup)
 `ตัดส่วน Simulator`
 
@@ -90,7 +90,7 @@ Reference [React Native Setup Environment](https://reactnative.dev/docs/environm
 
 ---
 
-# Run project 8-)
+# Run project 😄
 * Clone project
 ```
    git clone git@gitlab.com:ivlyfe-th/frontend/lyfetrack-app.git
@@ -107,7 +107,7 @@ Reference [React Native Setup Environment](https://reactnative.dev/docs/environm
 ```
 ---
 
-# Build Artifact :)
+# Build Artifact 😲
 ### Build Android
 
 * `Develop Environment`
@@ -190,6 +190,6 @@ Reference [React Native Setup Environment](https://reactnative.dev/docs/environm
    ENVFILE=.env.production react-native run-ios --configuration Release
 ```
 
->> iOS ไม่เคยใช้ command ส่วนใหญ่จะใช้ Xcode ซึ่ง command ด้านบนสามารถรันได้ แต่ยังไม่ทราบที่อยู่ไฟล์ .ipa
+> iOS ไม่เคยใช้ command ส่วนใหญ่จะใช้ Xcode ซึ่ง command ด้านบนสามารถรันได้ แต่ยังไม่ทราบที่อยู่ไฟล์ .ipa
 
 # CI/CD with Fastlane
