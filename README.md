@@ -1,34 +1,195 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Install Homebrew & Git
+Reference [Homebrew](https://medium.com/mycostech/%E0%B8%A1%E0%B8%B2%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87-homebrew-%E0%B8%9A%E0%B8%99-macbook-m1-%E0%B8%AA%E0%B8%B3%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%8A%E0%B8%B2%E0%B8%A7-dev-%E0%B8%81%E0%B8%B1%E0%B8%99-%E0%B8%89%E0%B8%9A%E0%B8%B1%E0%B8%9A%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B9%80%E0%B8%9E%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87-node-js-%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B9%89%E0%B8%B2%E0%B8%A2-d33a7444eb53)
 
-## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+* Install Homebrew
+```
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* set path environment ให้มองเห็น Homebrew
+```
+   touch ~/.zshrc
+```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+* ทำการ export path ในไฟล์ .zshrc
+```
+   export PATH=/opt/homebrew/bin:$PATH
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+* ทดสอบรัน brew
+```
+   brew --version
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+* Install Git 
+```
+   brew install git
+```
+```
+   git --version
+```
+---
 
-## Learn More
+# Setting Up React Native :cry:
+Reference [React Native Setup Environment](https://reactnative.dev/docs/environment-setup)
+`ตัดส่วน Simulator`
 
-To learn more about Next.js, take a look at the following resources:
+* Node 12 or newer
+```
+   brew install node
+```
+```
+   node --version
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Watchman
+```
+   brew install watchman
+```
+```
+   watchman --version
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Android
 
-## Deploy on Vercel
+* Java Development Kit ( JDK 11 or newer )
+```
+   brew install --cask adoptopenjdk/openjdk/adoptopenjdk11
+```
+```
+   java --version
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### iOS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Xcode command line tools
+
+  `Reference`  https://docs.fastlane.tools/getting-started/ios/setup/
+```
+   sudo xcode-select --install
+```
+```
+   xcodebuild -version
+```
+
+* CocoaPods
+```
+   sudo gem install cocoapods
+```
+```
+   pod --version
+```
+
+#### React Native Command Line Interface (ติดตั้งมาพร้อม Nodejs)
+   
+`ตัวอย่าง` การใช้งาน command
+```
+   npx react-native <command>
+```
+
+---
+
+# Run project 8-)
+* Clone project
+```
+   git clone git@gitlab.com:ivlyfe-th/frontend/lyfetrack-app.git
+```
+
+* Install dependency
+```
+   yarn install
+```
+
+* Testing Unit Test
+```
+   yarn run jest --coverage
+```
+---
+
+# Build Artifact :)
+### Build Android
+
+* `Develop Environment`
+
+แบบใช้ประจำ
+```
+   yarn run android:release:dev
+```
+แบบเต็ม
+```
+   yarn clean:android && npx react-native run-android --variant=developmentrelease --appIdSuffix=development
+```
+
+* `Alpha Environment`
+
+แบบใช้ประจำ
+```
+   yarn run android:release:alpha
+```
+แบบเต็ม
+```
+   yarn clean:android && npx react-native run-android --variant=alpharelease --appIdSuffix=alpha
+```
+* `Staging Environment`
+
+แบบใช้ประจำ
+```
+   yarn run android:release:staging
+```
+แบบเต็ม
+```
+   yarn clean:android && npx react-native run-android --variant=stagingrelease --appIdSuffix=captest
+```
+* `Production Environment`
+
+แบบใช้ประจำ 
+```
+   yarn run android:release:prod
+```
+แบบเต็ม
+```
+   yarn clean:android && npx react-native run-android --variant=productionrelease
+```
+
+> หลังจาก build แล้วจะนำ .apk ส่งไปทดสอบ ให้ไปที่ Folder android/app/build/outputs/apk/development/release
+### Build iOS
+
+* `Develop Environment`
+
+
+```
+   yarn run ios:release:dev
+```
+```
+   ENVFILE=.env.development react-native run-ios --configuration Release --verbose
+```
+
+* `Alpha Environment`
+
+```
+   yarn run ios:release:alpha
+```
+```
+   ENVFILE=.env.alpha react-native run-ios --configuration Release
+```
+* `Staging Environment`
+
+```
+   yarn run ios:release:staging
+```
+```
+   ENVFILE=.env.staging react-native run-ios --configuration Release
+```
+* `Production Environment`
+
+```
+   yarn run ios:release:prod
+```
+```
+   ENVFILE=.env.production react-native run-ios --configuration Release
+```
+
+>> iOS ไม่เคยใช้ command ส่วนใหญ่จะใช้ Xcode ซึ่ง command ด้านบนสามารถรันได้ แต่ยังไม่ทราบที่อยู่ไฟล์ .ipa
+
+# CI/CD with Fastlane
