@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-foodtrack-staging-40937-authRole",
+      "UnauthRoleArn": "arn:aws:iam::220759422821:role/amplify-foodtrack-staging-40937-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::220759422821:role/amplify-foodtrack-staging-40937-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-foodtrack-staging-40937-deployment",
+      "UnauthRoleName": "amplify-foodtrack-staging-40937-unauthRole",
+      "StackName": "amplify-foodtrack-staging-40937",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:220759422821:stack/amplify-foodtrack-staging-40937/0dee7870-aa5f-11ec-a4d0-06a39a5ea178",
+      "AmplifyAppId": "d2afdjzyjosna7"
+    }
+  }
+}
